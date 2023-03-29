@@ -4,10 +4,17 @@ public class Content {
 
   private final String title;
   private final String imageUrl;
+  private String imDbRating;
 
   public Content (String title, String imageUrl) {
     this.title = title;
     this.imageUrl = imageUrl;
+  }
+
+  public Content(String title, String imageUrl, String imDbRating) {
+    this.title = title;
+    this.imageUrl = imageUrl;
+    this.imDbRating = imDbRating;
   }
 
   public String getTitle() {
@@ -16,6 +23,10 @@ public class Content {
 
   public String getImageUrl() {
     return imageUrl;
+  }
+
+  public String getImDbRating() {
+    return imDbRating;
   }
 
 }

@@ -13,7 +13,7 @@ public class ImdbContentExtractor implements ContentExtractor {
     List<Map<String, String>> attributesList = parser.parse(json);
 
     return attributesList.stream()
-      .map(attribute -> new Content(attribute.get("title"), attribute.get("image")))
+      .map(attribute -> new Content(attribute.get("title"), attribute.get("image"), attribute.get("imDbRating")))
       .toList();
   }
 
