@@ -11,6 +11,7 @@ public class JsonParser {
   private static final Pattern REGEX_ATTRIBUTES_JSON = Pattern.compile("\"(.+?)\":\"(.*?)\"");
 
   public List<Map<String, String>> parse (String json) {
+
     Matcher matcher = REGEX_ITEMS.matcher(json);
     if (!matcher.find()) {
       throw new IllegalArgumentException("Not found items.");
