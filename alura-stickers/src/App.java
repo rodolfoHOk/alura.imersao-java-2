@@ -1,39 +1,39 @@
+import client.ClientHttp;
+import extractor.ContentExtractor;
+import extractor.ImdbContentExtractor;
+import extractor.NasaContentExtractor;
+import model.Content;
+import utils.StickersGenerator;
+
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URI;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
 import java.util.List;
-import java.util.Map;
 
 public class App {
 
   public static void main(String[] args) throws IOException, InterruptedException {
 
-    // fazer uma conexão com HTTP e buscar os top filmes
+    // IMDB
     String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
-    var uri = URI.create(url);
-    var client = HttpClient.newHttpClient();
-    var request = HttpRequest.newBuilder(uri).GET().build();
-    HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-    String body = response.body();
+    ContentExtractor extractor = new ImdbContentExtractor();
 
-    // extrair só os dados que interessam (titulo, poster, classificação)
-    var parser = new JsonParser();
-    List<Map<String, String>> filmList = parser.parse(body);
+    // NASA
+//    String url = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14";
+//    ContentExtractor extractor = new NasaContentExtractor();
 
-    // exibir e manipular os dados
+    var http = new ClientHttp();
+    String json = http.getData(url);
+
+    List<Content> contents = extractor.extract(json);
     var stickersGenerator = new StickersGenerator();
 
-    for(Map<String, String> film : filmList) {
-      String urlImage = film.get("image");
-      String title = film.get("title");
+    for(Content content : contents) {
+      String urlImage = content.getImageUrl();
+      String title = content.getTitle();
 
       System.out.println(title);
       System.out.println(urlImage);
-      System.out.println(film.get("imDbRating"));
       System.out.println();
 
       InputStream inputStream = new URL(urlImage).openStream();

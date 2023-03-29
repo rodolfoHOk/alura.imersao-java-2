@@ -1,3 +1,5 @@
+package utils;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -10,9 +12,6 @@ public class StickersGenerator {
   public void create(InputStream inputStream, String fileName) throws IOException {
 
     // leitura da imagem
-//    InputStream inputStream = new FileInputStream(new File("images/in/film.jpg")); // teste lendo de um arquivo
-//    InputStream inputStream = new URL("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies_1.jpg")
-//        .openStream(); // teste lendo de uma url da internet
     BufferedImage originalImage = ImageIO.read(inputStream);
 
     // cria nova imagem em memória com transparência e com tamanho novo
@@ -38,10 +37,5 @@ public class StickersGenerator {
     ImageIO.write(newImage, "png", new File("images/out/" + fileName + ".png"));
 
   }
-
-//  public static void main(String[] args) throws IOException { // teste lendo arquivo ou url
-//    var generator = new StickersGenerator();
-//    generator.create();
-//  }
 
 }
