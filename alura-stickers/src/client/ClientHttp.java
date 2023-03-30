@@ -1,5 +1,7 @@
 package client;
 
+import exception.ClientHttpException;
+
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -18,7 +20,7 @@ public class ClientHttp {
       return response.body();
 
     } catch (IOException | InterruptedException ex) {
-      throw new RuntimeException(ex);
+      throw new ClientHttpException("Error fetching data from url");
     }
 
   }
