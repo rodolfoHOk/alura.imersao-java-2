@@ -60,7 +60,13 @@
 
 > Criando nossa própria API com Spring
 
-- em breve
+### Desafios da aula 4 ✨
+
+1. Finalizar o CRUD (Create, Read, Update e Delete) para que se possa atualizar e excluir uma linguagem cadastrada.
+
+2. Devolver a listagem ordenada pelo ranking;
+
+3. Retornar o status 201 quando um recurso (linguagem, no nosso caso) for cadastrado através do POST.
 
 ## Aula 5 👨‍💻
 

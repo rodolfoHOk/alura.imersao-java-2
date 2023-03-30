@@ -15,7 +15,7 @@ public class App {
 
   public static void main(String[] args) throws IOException, InterruptedException {
 
-    API api = API.IMDB_TOP_MOVIES;
+    API api = API.LANGUAGES;
 //    API api = API.NASA;
 
     var http = new ClientHttp();

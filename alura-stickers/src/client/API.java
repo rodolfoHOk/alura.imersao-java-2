@@ -2,6 +2,7 @@ package client;
 
 import extractor.ContentExtractor;
 import extractor.ImdbContentExtractor;
+import extractor.LanguagesContentExtractor;
 import extractor.NasaContentExtractor;
 
 public enum API {
@@ -24,6 +25,10 @@ public enum API {
   NASA(
     "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2022-06-12&end_date=2022-06-14",
     new NasaContentExtractor()
+  ),
+  LANGUAGES(
+    "http://localhost:8080/languages",
+    new LanguagesContentExtractor()
   );
 
   private String url;

@@ -20,7 +20,7 @@ public class StickersGenerator {
     // cria nova imagem em memória com transparência e com tamanho novo
     int width = originalImage.getWidth();
     int height = originalImage.getHeight();
-    int newHeight = height + 200;
+    int newHeight = height * 115 / 100;
     BufferedImage newImage = new BufferedImage(width, newHeight, BufferedImage.TRANSLUCENT);
 
     // copiar a imagem original pra novo imagem (em memória)
@@ -28,7 +28,8 @@ public class StickersGenerator {
     graphics.drawImage(originalImage, 0, 0, null);
 
     // configurar a fonte
-    var font = new Font("Comic Neue", Font.BOLD, 96);
+    int fontSize = (newHeight - height) * 2 / 3;
+    var font = new Font("Comic Neue", Font.BOLD, fontSize);
     graphics.setFont(font);
 
     // escrever uma frase na nova imagem
