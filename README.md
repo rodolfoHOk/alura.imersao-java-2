@@ -5,6 +5,15 @@
 ## Principais tecnologias 👩‍💻
 
 - Java 17
+- Spring Framework
+- Mongo DB (Atlas cloud)
+
+### 📚 Bibliotecas utilizadas 🗃️
+
+- java sdk 17
+- spring-boot-starter-web
+- spring-boot-starter-data-mongodb
+- spring-boot-starter-validation
 
 ## Aula 1 👨‍💻
 
