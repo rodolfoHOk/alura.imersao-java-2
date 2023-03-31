@@ -7,6 +7,7 @@
 - Java 17
 - Spring Framework
 - Mongo DB (Atlas cloud)
+- fly.io (deploy)
 
 ### 📚 Bibliotecas utilizadas 🗃️
 
@@ -81,4 +82,30 @@
 
 > Publicando nossa API no Cloud
 
-- em breve
+### Passo a passo deploy
+
+- Acessar: https://fly.io
+- Criar uma conta
+- Adicionar cartão de crédito
+- obs: Ficar de olho no free tier
+- Instalar o flyctl no Linux (terminal): curl -L https://fly.io/install.sh | sh
+- Lazer login com flyctl (terminal): fly auth login
+- Confirmar a autenticação no browser
+- Entrar na pasta do projeto pelo terminal
+- Lançar a aplicação (terminal): fly launch --image rodolfohok/languages-api:latest
+- Escolher o nome da aplicação: alura-languages-api
+- Escolher a região para o deploy: Sao Paulo, Brazil (gru)
+- Set up PostgreSQL: no
+- Set up Redis: no
+- Confirm deploy: yes
+- Acessar: https://fly.io/dashboard
+- Clicar: alura-languages-api
+- Copiar o hostname
+- Testar acessando o hostname/languages
+- Testar no Postman / Insomnia com o hostname
+- Usar o hostname para gerar os stickers com a outra aplicação
+
+#### Adendo
+
+- Setar outro banco de dados (terminal): fly secrets set "SPRING_DATA_MONGODB_URI=mongodb+srv://rodolfohokino:<password>@cluster0.s8iey.mongodb.net/aluraDb?retryWrites=true&w=majority"
+- obs: substituir <password> pela senha correta
